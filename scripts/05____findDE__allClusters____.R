@@ -52,6 +52,9 @@ for (i in 1:length(levels(Idents(all.pbmcs)))) {
   
 }
 
+save(caseD1.caseD2.list, controlD1.controlD2.list ,caseD1.controlD1.list, caseD2.controlD2.list , file = "results/FindMarkers_list_all.pbmcs.latenet.var.Rdata"  )
+
+
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 x = list()
 for (i in 1:length(caseD1.caseD2.list)) {
@@ -116,6 +119,7 @@ nde.gg = melt(nDE__harmony.latent.vars)
 colnames(nde.gg) = c("cluster","condition", "nDE")
 
 ggplot(nde.gg, aes(x=cluster, y=nDE , size = nDE , color = condition)) + scale_colour_viridis_d("condition") +
+   facet_wrap(~condition) + ggtitle("Number of DE genes - Harmony Latent Vars") +
   geom_point(alpha=1) +  theme(axis.text.x = element_text(angle = 90, hjust = 1))
 
 

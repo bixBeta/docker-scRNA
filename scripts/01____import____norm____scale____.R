@@ -31,4 +31,6 @@ DimPlot(all.pbmcs, group.by = "batch", raster = F)
 dev.off()
 saveRDS(object = all.pbmcs, file = "data/01____2_2_merged_filteredBySubset____normalized__w_latent_vars_dimRed__res__0.5.Rds")
 
+all.cca = readRDS("/Project____MECFS/Results/06_01____scRNAseq_118_Samples_PreProcessing/5_4____Integrated_18_batches____cluster_res0.5_.rds")
+all.cca.meta = all.cca@meta.data
 
